@@ -10,10 +10,10 @@ def getRabbit():
     channel.queue_declare(queue='ServiceA')
 
     def callback(ch, method, properties, body):
-        print(" [x] Received %r" % body)
-        setS3(body)
+        print("Notificação recebida %r" % body)
+        setS3(body) # chama funtion para envio ao S3
 
     channel.basic_consume(queue='ServiceA', on_message_callback=callback, auto_ack=True)
 
-    print(' [*] Waiting for messages. To exit press CTRL+C')
+    print('Agurdando por mensagens.')
     channel.start_consuming()
