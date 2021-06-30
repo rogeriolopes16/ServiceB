@@ -1,6 +1,7 @@
 import pika
 from modules.setS3 import *
 
+# funtion que pega notificações na fila do RabbitMQ
 def getRabbit():
     credentials = pika.PlainCredentials('guest', 'guest')
     connection = pika.BlockingConnection(pika.ConnectionParameters('rabbitmq', 5672, '/',credentials))
