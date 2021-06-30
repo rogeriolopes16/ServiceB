@@ -4,9 +4,9 @@ import sys, os
 
 if __name__ == '__main__':
     try:
-        getRabbit()
+        getRabbit() # chama funtion do serviço que pega informações no RabbitMQ e envia para S3
     except KeyboardInterrupt:
-        print('Interrupted')
+        # caso exista exceção o serviço é encerrado.
         try:
             sys.exit(0)
         except SystemExit:
